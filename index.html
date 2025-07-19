@@ -122,6 +122,24 @@
             background: #f5f5f5;
         }
 
+        /* Стили для блоков в секции intro */
+        .intro-block {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e4e4e7;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .intro-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        [lang="he"] .intro-block {
+            text-align: right;
+        }
+
         /* Остальные стили */
         .pro-con-item { padding-left: 1.75rem; position: relative; }
         .pro-item::before { content: '✔'; color: #22c55e; font-weight: bold; font-size: 1.25rem; position: absolute; left: 0; top: 2px; }
@@ -149,6 +167,7 @@
             .footer-section .text-3xl { font-size: 1.5rem; }
             .footer-section .text-lg { font-size: 1rem; }
             .px-8 { padding-left: 1rem; padding-right: 1rem; }
+            .intro-block { padding: 1rem; }
         }
     </style>
 </head>
@@ -178,12 +197,19 @@
         </section>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 space-y-16">
             <section id="intro" class="fade-in">
-                <div class="prose prose-zinc max-w-none text-lg">
-                    <p id="intro-p1">Полимерные полы (Resin) — это не просто покрытие, а целая философия дизайна. Материал наносится в жидком виде, образуя после полимеризации прочное, долговечное и абсолютно монолитное полотно. Это выбор для тех, кто ценит чистоту линий и непрерывность пространства.</p>
-                    <h3 id="intro-h3-1" class="section-title fade-in">История и Технология</h3>
-                    <p id="intro-p2">Придя из высокотехнологичной промышленности, где ценилась их износостойкость и гигиеничность, полимерные полы были адаптированы ведущими дизайнерами для жилых и общественных пространств. В основе — эпоксидные или полиуретановые смолы (resins), которые смешиваются с отвердителем, пигментами и наполнителями, создавая безграничные возможности для дизайна.</p>
-                    <h3 id="intro-h3-2" class="section-title fade-in">Применение и Эстетика</h3>
-                    <p id="intro-p3">Resin — идеальное решение для шоу-румов, галерей, бутиков и современных апартаментов. Глянцевый финиш визуально расширяет пространство, матовый — создает ощущение уюта и глубины. Возможность колеровки в любой цвет по RAL или NCS делает его мощным инструментом в руках архитектора.</p>
+                <div class="prose prose-zinc max-w-none text-lg space-y-6">
+                    <div class="intro-block fade-in">
+                        <h3 id="intro-h3-0" class="section-title text-2xl font-bold mb-4">Полимерные полы</h3>
+                        <p id="intro-p1">Полимерные полы (Resin) — это не просто покрытие, а целая философия дизайна. Материал наносится в жидком виде, образуя после полимеризации прочное, долговечное и абсолютно монолитное полотно. Это выбор для тех, кто ценит чистоту линий и непрерывность пространства.</p>
+                    </div>
+                    <div class="intro-block fade-in" style="transition-delay: 0.1s">
+                        <h3 id="intro-h3-1" class="section-title text-2xl font-bold mb-4">История и Технология</h3>
+                        <p id="intro-p2">Придя из высокотехнологичной промышленности, где ценилась их износостойкость и гигиеничность, полимерные полы были адаптированы ведущими дизайнерами для жилых и общественных пространств. В основе — эпоксидные или полиуретановые смолы (resins), которые смешиваются с отвердителем, пигментами и наполнителями, создавая безграничные возможности для дизайна.</p>
+                    </div>
+                    <div class="intro-block fade-in" style="transition-delay: 0.2s">
+                        <h3 id="intro-h3-2" class="section-title text-2xl font-bold mb-4">Применение и Эстетика</h3>
+                        <p id="intro-p3">Resin — идеальное решение для шоу-румов, галерей, бутиков и современных апартаментов. Глянцевый финиш визуально расширяет пространство, матовый — создает ощущение уюта и глубины. Возможность колеровки в любой цвет по RAL или NCS делает его мощным инструментом в руках архитектора.</p>
+                    </div>
                 </div>
             </section>
             <section id="handcrafted" class="fade-in">
@@ -357,6 +383,7 @@
                 "page-title": "Resin: Полный гид по полимерным полам | FLOOR DSGN",
                 "hero-title": "Resin: Жидкий камень вашего интерьера",
                 "hero-subtitle": "Технология создания идеально гладкой, бесшовной и монолитной поверхности с премиальной эстетикой.",
+                "intro-h3-0": "Полимерные полы",
                 "intro-p1": "Полимерные полы (Resin) — это не просто покрытие, а целая философия дизайна. Материал наносится в жидком виде, образуя после полимеризации прочное, долговечное и абсолютно монолитное полотно. Это выбор для тех, кто ценит чистоту линий и непрерывность пространства.",
                 "intro-h3-1": "История и Технология",
                 "intro-p2": "Придя из высокотехнологичной промышленности, где ценилась их износостойкость и гигиеничность, полимерные полы были адаптированы ведущими дизайнерами для жилых и общественных пространств. В основе — эпоксидные или полиуретановые смолы (resins), которые смешиваются с отвердителем, пигментами и наполнителями, создавая безграничные возможности для дизайна.",
@@ -436,6 +463,7 @@
                 "page-title": "Resin: Complete Guide to Polymer Floors | FLOOR DSGN",
                 "hero-title": "Resin: The Liquid Stone of Your Interior",
                 "hero-subtitle": "A technology for creating perfectly smooth, seamless, and monolithic surfaces with premium aesthetics.",
+                "intro-h3-0": "Polymer Floors",
                 "intro-p1": "Polymer floors (Resin) are not just a coating but a whole philosophy of design. The material is applied in liquid form, forming a strong, durable, and completely seamless surface after curing. It’s the choice for those who value clean lines and spatial continuity.",
                 "intro-h3-1": "History and Technology",
                 "intro-p2": "Originating from high-tech industries where their durability and hygiene were valued, polymer floors have been adapted by leading designers for residential and public spaces. At their core are epoxy or polyurethane resins, mixed with hardeners, pigments, and fillers, offering endless design possibilities.",
@@ -515,6 +543,7 @@
                 "page-title": "Resin: מדריך מלא לרצפות פולימריות | FLOOR DSGN",
                 "hero-title": "Resin: האבן הנוזלית של הפנים שלך",
                 "hero-subtitle": "טכנולוגיה ליצירת משטח חלק, חסר תפרים ומונוליתי עם אסתטיקה יוקרתית.",
+                "intro-h3-0": "רצפות פולימריות",
                 "intro-p1": "רצפות פולימריות (Resin) אינן רק ציפוי, אלא פילוסופיית עיצוב שלמה. החומר מוחל בצורה נוזלית, ויוצר לאחר התקשות משטח חזק, עמיד ומונוליתי לחלוטין. זו הבחירה של מי שמעריך קווים נקיים והמשכיות מרחבית.",
                 "intro-h3-1": "היסטוריה וטכנולוגיה",
                 "intro-p2": "מקורן בתעשיות היי-טק שבהן הוערכו עמידותן והיגייניותן, רצפות פולימריות אומצו על ידי מעצבים מובילים לחללים מגורים וציבוריים. בבסיסן נמצאות שרפות אפוקסי או פוליאוריתן, המעורבבות עם מקשה, פיגמנטים וחומרי מילוי, המאפשרים אפשרויות עיצוב בלתי מוגבלות.",
