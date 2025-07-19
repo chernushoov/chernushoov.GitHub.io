@@ -1,3 +1,14 @@
+Конечно, я внес запрошенные вами изменения.
+
+Я убрал кнопку "Заказать расчет" из шапки сайта. За счет этого, согласно правилам выравнивания, кнопка переключения языка автоматически сдвинулась к правому краю, создавая чистый и сбалансированный вид.
+
+Вот обновленный код.
+
+### **Исправленный код `index.html`**
+
+Просто скопируйте этот код и полностью замените им содержимое вашего файла `index.html` на компьютере, а затем загрузите обновленный файл на GitHub.
+
+```html
 <!DOCTYPE html>
 <html lang="ru" id="html-root">
 <head>
@@ -156,16 +167,13 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <img src="Logo_b_2.jpeg" alt="FLOOR DSGN Black Logo" class="h-12 transition-transform duration-300 hover:scale-110 fade-in">
-                <div class="flex items-center space-x-2">
-                    <div class="language-switcher">
-                        <button id="lang-toggle" class="px-4 py-2 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-transform duration-300 hover:scale-105 fade-in">RU</button>
-                        <div class="language-dropdown">
-                            <button onclick="changeLanguage('ru')">RU</button>
-                            <button onclick="changeLanguage('en')">EN</button>
-                            <button onclick="changeLanguage('he')">HE</button>
-                        </div>
+                <div class="language-switcher">
+                    <button id="lang-toggle" class="px-4 py-2 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-transform duration-300 hover:scale-105 fade-in">RU</button>
+                    <div class="language-dropdown">
+                        <button onclick="changeLanguage('ru')">RU</button>
+                        <button onclick="changeLanguage('en')">EN</button>
+                        <button onclick="changeLanguage('he')">HE</button>
                     </div>
-                    <a href="#contact" id="header-button" class="px-4 py-2 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-transform duration-300 hover:scale-105 fade-in">Заказать расчет</a>
                 </div>
             </div>
         </div>
@@ -597,31 +605,31 @@
             }
         };
 
-        function changeLanguage(lang) {
-            document.getElementById('html-root').setAttribute('lang', lang);
-            Object.keys(translations[lang]).forEach(id => {
-                const element = document.getElementById(id);
-                if (element) element.innerHTML = translations[lang][id];
-            });
-            document.getElementById('lang-toggle').innerText = lang.toUpperCase();
-            if (lang === 'he') {
-                document.querySelector('.hero-section img').setAttribute('alt', 'מרקם רצפת פולימר Resin');
-            } else if (lang === 'en') {
-                document.querySelector('.hero-section img').setAttribute('alt', 'Texture of Resin polymer floor');
-            } else {
-                document.querySelector('.hero-section img').setAttribute('alt', 'Текстура полимерного пола Resin');
-            }
-        }
+        function changeLanguage(lang) {
+            document.getElementById('html-root').setAttribute('lang', lang);
+            Object.keys(translations[lang]).forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.innerHTML = translations[lang][id];
+            });
+            document.getElementById('lang-toggle').innerText = lang.toUpperCase();
+            if (lang === 'he') {
+                document.querySelector('.hero-section img').setAttribute('alt', 'מרקם רצפת פולימר Resin');
+            } else if (lang === 'en') {
+                document.querySelector('.hero-section img').setAttribute('alt', 'Texture of Resin polymer floor');
+            } else {
+                document.querySelector('.hero-section img').setAttribute('alt', 'Текстура полимерного пола Resin');
+            }
+        }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('visible');
-                });
-            }, { threshold: 0.1 });
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
 
-            document.querySelectorAll('.fade-in, .scale-pop, .slide-up').forEach(el => observer.observe(el));
-        });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'961655b759b7163c',t:'MTc1Mjg4NzM4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+            document.querySelectorAll('.fade-in, .scale-pop, .slide-up').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
 </html>
