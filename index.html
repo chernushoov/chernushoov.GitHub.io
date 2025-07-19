@@ -143,10 +143,11 @@
         .nav-menu ul {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: flex-end;
             gap: 1rem;
             padding: 0;
-            margin: 0;
+            margin: 0 auto;
+            max-width: 1280px;
             list-style: none;
         }
         .nav-menu a {
@@ -260,7 +261,11 @@
             .hero-section .text-4xl { font-size: 1.75rem; }
             .hero-section .text-lg { font-size: 1rem; }
             .max-w-4xl { padding: 0 1rem; }
-            .nav-menu ul { flex-direction: column; align-items: center; gap: 0.5rem; }
+            .nav-menu ul { 
+                flex-direction: column; 
+                align-items: center; 
+                gap: 0.5rem; 
+            }
             .nav-menu a { padding: 0.5rem; font-size: 0.9rem; }
             .grid-cols-2, .grid-cols-3 { grid-template-columns: 1fr; }
             .intro-block { padding: 1rem; }
@@ -271,13 +276,24 @@
             .language-toggle { font-size: 0.9rem; padding: 0.4rem 0.8rem; }
             .menu-toggle { display: block; }
             .nav-menu { display: none; }
-            .nav-menu.active { display: block; position: absolute; top: 100%; left: 0; right: 0; background: #ffffff; z-index: 20; }
+            .nav-menu.active { 
+                display: block; 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                right: 0; 
+                background: #ffffff; 
+                z-index: 20; 
+            }
             .header-container { padding: 0.75rem 1rem; }
             .header-logo img { height: 2rem; }
         }
         @media (min-width: 769px) and (max-width: 1024px) {
             .hero-section { height: 55vh; }
-            .nav-menu ul { gap: 0.75rem; }
+            .nav-menu ul { 
+                gap: 0.75rem; 
+                justify-content: flex-end; 
+            }
             .nav-menu a { font-size: 0.95rem; }
             .grid-cols-3 { grid-template-columns: 1fr 1fr; }
             .header-container { padding: 1rem 1.5rem; }
@@ -285,6 +301,7 @@
         @media (min-width: 1025px) {
             .menu-toggle { display: none; }
             .nav-menu { display: block !important; }
+            .nav-menu ul { justify-content: flex-end; }
         }
     </style>
 </head>
@@ -312,15 +329,15 @@
         </div>
     </header>
     <nav class="nav-menu hidden" id="nav-menu">
-        <ul class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <li><a href="#intro">О материале</a></li>
-            <li><a href="#handcrafted">Ручная работа</a></li>
-            <li><a href="#pros-cons">Характеристики</a></li>
-            <li><a href="#application">Применение</a></li>
-            <li><a href="#compositions">Составы</a></li>
-            <li><a href="#comparison">Сравнение</a></li>
-            <li><a href="#care">Уход</a></li>
-            <li><a href="#contact">Контакты</a></li>
+        <ul class="px-4 sm:px-6 lg:px-8">
+            <li><a href="#intro" id="nav-item-1">О материале</a></li>
+            <li><a href="#handcrafted" id="nav-item-2">Ручная работа</a></li>
+            <li><a href="#pros-cons" id="nav-item-3">Характеристики</a></li>
+            <li><a href="#application" id="nav-item-4">Применение</a></li>
+            <li><a href="#compositions" id="nav-item-5">Составы</a></li>
+            <li><a href="#comparison" id="nav-item-6">Сравнение</a></li>
+            <li><a href="#care" id="nav-item-7">Уход</a></li>
+            <li><a href="#contact" id="nav-item-8">Контакты</a></li>
         </ul>
     </nav>
     <main>
@@ -593,7 +610,15 @@
                 "footer-button-whatsapp": "WhatsApp",
                 "footer-button-telegram": "Telegram",
                 "footer-copyright": "© 2025 FLOOR | DSGN. Все права защищены.",
-                "scroll-top": "Наверх"
+                "scroll-top": "Наверх",
+                "nav-item-1": "О материале",
+                "nav-item-2": "Ручная работа",
+                "nav-item-3": "Характеристики",
+                "nav-item-4": "Применение",
+                "nav-item-5": "Составы",
+                "nav-item-6": "Сравнение",
+                "nav-item-7": "Уход",
+                "nav-item-8": "Контакты"
             },
             en: {
                 "page-title": "Resin: Complete Guide to Polymer Floors | FLOOR DSGN",
@@ -673,7 +698,15 @@
                 "footer-button-whatsapp": "WhatsApp",
                 "footer-button-telegram": "Telegram",
                 "footer-copyright": "© 2025 FLOOR | DSGN. All rights reserved.",
-                "scroll-top": "Back to Top"
+                "scroll-top": "Back to Top",
+                "nav-item-1": "About the Material",
+                "nav-item-2": "Handcrafted Work",
+                "nav-item-3": "Characteristics",
+                "nav-item-4": "Applications",
+                "nav-item-5": "Compositions",
+                "nav-item-6": "Comparison",
+                "nav-item-7": "Care",
+                "nav-item-8": "Contact"
             },
             he: {
                 "page-title": "רזין: מדריך מלא לרצפות פולימר | FLOOR DSGN",
@@ -753,7 +786,15 @@
                 "footer-button-whatsapp": "WhatsApp",
                 "footer-button-telegram": "Telegram",
                 "footer-copyright": "© 2025 FLOOR | DSGN. כל הזכויות שמורות.",
-                "scroll-top": "חזרה למעלה"
+                "scroll-top": "חזרה למעלה",
+                "nav-item-1": "על החומר",
+                "nav-item-2": "עבודת יד",
+                "nav-item-3": "מאפיינים",
+                "nav-item-4": "יישומים",
+                "nav-item-5": "הרכבים",
+                "nav-item-6": "השוואה",
+                "nav-item-7": "טיפול",
+                "nav-item-8": "צור קשר"
             }
         };
 
