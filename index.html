@@ -92,6 +92,7 @@
         /* Языковая панель */
         .language-switcher {
             position: relative;
+            margin-left: auto; /* Сдвигаем вправо */
         }
         .language-dropdown {
             display: none;
@@ -152,20 +153,17 @@
     </style>
 </head>
 <body class="text-zinc-800">
-    <header class="bg-black/90 backdrop-blur-lg sticky top-0 z-50 shadow-md">
+    <header class="bg-black/90 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
+            <div class="flex items-center py-4">
                 <img src="Logo_b_2.jpeg" alt="FLOOR DSGN Black Logo" class="h-12 transition-transform duration-300 hover:scale-110 fade-in">
-                <div class="flex items-center space-x-2">
-                    <div class="language-switcher">
-                        <button id="lang-toggle" class="px-4 py-2 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-transform duration-300 hover:scale-105 fade-in">RU</button>
-                        <div class="language-dropdown">
-                            <button onclick="changeLanguage('ru')">RU</button>
-                            <button onclick="changeLanguage('en')">EN</button>
-                            <button onclick="changeLanguage('he')">HE</button>
-                        </div>
+                <div class="language-switcher">
+                    <button id="lang-toggle" class="px-4 py-2 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-transform duration-300 hover:scale-105 fade-in">RU</button>
+                    <div class="language-dropdown">
+                        <button onclick="changeLanguage('ru')">RU</button>
+                        <button onclick="changeLanguage('en')">EN</button>
+                        <button onclick="changeLanguage('he')">HE</button>
                     </div>
-                    <a href="#contact" id="header-button" class="px-4 py-2 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-transform duration-300 hover:scale-105 fade-in">Заказать расчет</a>
                 </div>
             </div>
         </div>
@@ -357,7 +355,6 @@
         const translations = {
             ru: {
                 "page-title": "Resin: Полный гид по полимерным полам | FLOOR DSGN",
-                "header-button": "Заказать расчет",
                 "hero-title": "Resin: Жидкий камень вашего интерьера",
                 "hero-subtitle": "Технология создания идеально гладкой, бесшовной и монолитной поверхности с премиальной эстетикой.",
                 "intro-p1": "Полимерные полы (Resin) — это не просто покрытие, а целая философия дизайна. Материал наносится в жидком виде, образуя после полимеризации прочное, долговечное и абсолютно монолитное полотно. Это выбор для тех, кто ценит чистоту линий и непрерывность пространства.",
@@ -437,7 +434,6 @@
             },
             en: {
                 "page-title": "Resin: Complete Guide to Polymer Floors | FLOOR DSGN",
-                "header-button": "Order Calculation",
                 "hero-title": "Resin: The Liquid Stone of Your Interior",
                 "hero-subtitle": "A technology for creating perfectly smooth, seamless, and monolithic surfaces with premium aesthetics.",
                 "intro-p1": "Polymer floors (Resin) are not just a coating but a whole philosophy of design. The material is applied in liquid form, forming a strong, durable, and completely seamless surface after curing. It’s the choice for those who value clean lines and spatial continuity.",
@@ -517,7 +513,6 @@
             },
             he: {
                 "page-title": "Resin: מדריך מלא לרצפות פולימריות | FLOOR DSGN",
-                "header-button": "הזמן חישוב",
                 "hero-title": "Resin: האבן הנוזלית של הפנים שלך",
                 "hero-subtitle": "טכנולוגיה ליצירת משטח חלק, חסר תפרים ומונוליתי עם אסתטיקה יוקרתית.",
                 "intro-p1": "רצפות פולימריות (Resin) אינן רק ציפוי, אלא פילוסופיית עיצוב שלמה. החומר מוחל בצורה נוזלית, ויוצר לאחר התקשות משטח חזק, עמיד ומונוליתי לחלוטין. זו הבחירה של מי שמעריך קווים נקיים והמשכיות מרחבית.",
@@ -605,11 +600,11 @@
             });
             document.getElementById('lang-toggle').innerText = lang.toUpperCase();
             if (lang === 'he') {
-                document.querySelector('.hero-section img').setAttribute('alt', 'מרקם רצפת פולימר Resin');
+                document.querySelector('.hero-section img')?.setAttribute('alt', 'מרקם רצפת פולימר Resin');
             } else if (lang === 'en') {
-                document.querySelector('.hero-section img').setAttribute('alt', 'Texture of Resin polymer floor');
+                document.querySelector('.hero-section img')?.setAttribute('alt', 'Texture of Resin polymer floor');
             } else {
-                document.querySelector('.hero-section img').setAttribute('alt', 'Текстура полимерного пола Resin');
+                document.querySelector('.hero-section img')?.setAttribute('alt', 'Текстура полимерного пола Resin');
             }
         }
 
