@@ -26,7 +26,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
-            transition: none; /* No animations */
+            transition: none;
         }
 
         /* Prominent logo styling */
@@ -41,10 +41,11 @@
             color: #0056b3;
         }
 
-        /* Language dropdown styling */
+        /* Language dropdown styling, slightly left-aligned */
         .language-dropdown {
             position: relative;
             display: inline-block;
+            margin-right: 10px; /* Adjusted to move slightly left */
         }
 
         .language-button {
@@ -116,13 +117,21 @@
             padding: 20px;
         }
 
-        /* Section styling */
+        /* Section styling with visual separation */
         section {
             margin-bottom: 40px;
             padding: 20px;
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow for separation */
+        }
+
+        /* Horizontal line for additional separation */
+        hr.section-divider {
+            border: 0;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
         }
 
         /* Table styling */
@@ -142,18 +151,25 @@
             background-color: #f5f5f5;
         }
 
-        /* Footer styling */
+        /* Restored footer styling */
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
             background-color: #f8f8f8;
             margin-top: 40px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 16px;
         }
 
         footer a {
             color: #007bff;
             text-decoration: none;
             margin: 0 10px;
+            font-weight: bold;
         }
 
         footer a:hover {
@@ -167,6 +183,7 @@
             margin: 20px 0;
             color: #007bff;
             text-decoration: none;
+            font-weight: bold;
         }
 
         a[href="#"]:hover {
@@ -193,6 +210,8 @@
             <p>Технология создания идеально гладкой, бесшовной и монолитной поверхности с премиальной эстетикой.</p>
         </section>
 
+        <hr class="section-divider">
+
         <section>
             <h2>Полимерные полы (Resin) — это не просто покрытие, а целая философия дизайна.</h2>
             <p>Материал наносится в жидком виде, образуя после полимеризации прочное, долговечное и абсолютно монолитное полотно. Это выбор для тех, кто ценит чистоту линий и непрерывность пространства.</p>
@@ -202,12 +221,16 @@
             <p>Resin — идеальное решение для шоу-румов, галерей, бутиков и современных апартаментов. Глянцевый финиш визуально расширяет пространство, матовый — создает ощущение уюта и глубины. Возможность колеровки в любой цвет по RAL или NCS делает его мощным инструментом в руках архитектора.</p>
         </section>
 
+        <hr class="section-divider">
+
         <section>
             <h2>Ручная работа и особенности климата</h2>
             <h3>Искусство в деталях</h3>
             <p>Каждый пол Resin — это результат кропотливой ручной работы. Это не фабричный продукт, а уникальное произведение, созданное мастером прямо на объекте. Именно поэтому финальный вид и качество покрытия напрямую зависят от опыта и квалификации специалиста.</p>
             <p>Реализация таких проектов, особенно в условиях жаркого климата Израиля, представляет собой серьезный вызов. Высокая температура ускоряет химические реакции в смоле, сокращая время её жизни и требуя от мастера максимальной скорости и точности. Особенности самого материала также требуют строгого соблюдения технологии: от подготовки основания до контроля влажности и температуры в помещении. Это сложный процесс, который доверяют только профессионалам.</p>
         </section>
+
+        <hr class="section-divider">
 
         <section>
             <h2>Ключевые характеристики</h2>
@@ -225,6 +248,8 @@
             </ul>
         </section>
 
+        <hr class="section-divider">
+
         <section>
             <h2>Области применения</h2>
             <ul>
@@ -237,6 +262,8 @@
             </ul>
         </section>
 
+        <hr class="section-divider">
+
         <section>
             <h2>Составы: Эпоксид vs Полиуретан</h2>
             <h3>Эпоксидные смолы (Epoxy)</h3>
@@ -244,6 +271,8 @@
             <h3>Полиуретановые смолы (PU)</h3>
             <p>Более эластичны и устойчивы к царапинам и УФ-излучению. Создают комфортное, тактильно приятное покрытие. Идеальны для жилых помещений, офисов и магазинов, где важен комфорт и стойкость к истиранию.</p>
         </section>
+
+        <hr class="section-divider">
 
         <section>
             <h2>Сравнение с другими материалами</h2>
@@ -287,6 +316,8 @@
             </table>
         </section>
 
+        <hr class="section-divider">
+
         <section>
             <h2>Уход, влагостойкость и обновление</h2>
             <h3>Влагостойкость</h3>
@@ -297,10 +328,16 @@
             <p>Одно из ключевых преимуществ — ремонтопригодность. Со временем, если верхний защитный слой износился или появились царапины, его можно легко обновить. Поверхность шлифуется и покрывается новым слоем лака, возвращая полу первозданный вид без необходимости полного демонтажа.</p>
         </section>
 
+        <hr class="section-divider">
+
         <footer>
             <p>Готовы создать идеальный пол?</p>
             <p>Свяжитесь с нами для бесплатной консультации и расчета стоимости вашего проекта.</p>
             <p><a href="#">WhatsApp</a> | <a href="#">Telegram</a></p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
             <p>© 2025 FLOOR | DSGN. Все права защищены.</p>
         </footer>
 
