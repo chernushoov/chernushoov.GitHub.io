@@ -12,12 +12,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f5f5f5;
-            color: #18181b;
+            background-color: #f4f5f7;
+            color: #1a202c;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
@@ -30,334 +31,85 @@
         [lang="he"] .pro-con-item { padding-right: 1.75rem; padding-left: 0; }
         [lang="he"] .pro-item::before, [lang="he"] .con-item::before { right: 0; left: auto; }
         [lang="he"] .section-title { text-align: right; }
-        .section-title { border-bottom: 2px solid #e4e4e7; padding-bottom: 0.5rem; }
+        .section-title { border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
 
-        /* Анимации */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .scale-pop {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .scale-pop.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .slide-up {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
-        }
-        .slide-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .icon-float {
-            animation: float 3s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
+        /* Animations */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .scale-pop { opacity: 0; transform: scale(0.9); transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .scale-pop.visible { opacity: 1; transform: scale(1); }
+        .slide-up { opacity: 0; transform: translateY(50px); transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out; }
+        .slide-up.visible { opacity: 1; transform: translateY(0); }
+        .icon-float { animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-        /* Стили для герой-секции */
-        .hero-section {
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            height: 60vh;
-            min-height: 400px;
-        }
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(24, 24, 27, 0.6);
-            animation: glow 4s infinite alternate;
-        }
-        @keyframes glow {
-            0% { background: rgba(24, 24, 27, 0.5); }
-            50% { background: rgba(24, 24, 27, 0.7); }
-            100% { background: rgba(24, 24, 27, 0.5); }
-        }
+        /* Hero Section */
+        .hero-section { background-image: url('background.jpg'); background-size: cover; background-position: center; position: relative; height: 60vh; min-height: 450px; }
+        .hero-overlay { position: absolute; inset: 0; background: rgba(24, 24, 27, 0.6); }
+        
+        /* Language Dropdown */
+        .language-switcher { position: relative; }
+        .language-dropdown { display: none; position: absolute; top: 100%; right: 0; background: #fff; border: 1px solid #e2e8f0; border-radius: 0.375rem; min-width: 100px; z-index: 20; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .language-switcher:hover .language-dropdown { display: block; }
+        .language-dropdown button { display: block; width: 100%; padding: 0.5rem 1rem; text-align: right; background: none; border: none; cursor: pointer; transition: background 0.2s; color: #1a202c; }
+        .language-dropdown button:hover { background: #f4f5f7; }
 
-        /* Языковая панель */
-        .language-switcher {
-            position: relative;
-        }
-        .language-dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: #fff;
-            border: 1px solid #e4e4e7;
-            border-radius: 0.375rem;
-            min-width: 100px;
-            z-index: 10;
-        }
-        .language-switcher:hover .language-dropdown {
-            display: block;
-        }
-        .language-dropdown button {
-            display: block;
-            width: 100%;
-            padding: 0.5rem 1rem;
-            text-align: right;
-            background: none;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .language-dropdown button:hover {
-            background: #f5f5f5;
-        }
-
-        /* Остальные стили */
         .pro-con-item { padding-left: 1.75rem; position: relative; }
-        .pro-item::before { content: '✔'; color: #22c55e; font-weight: bold; font-size: 1.25rem; position: absolute; left: 0; top: 2px; }
-        .con-item::before { content: '✘'; color: #ef4444; font-weight: bold; font-size: 1.25rem; position: absolute; left: 0; top: 2px; }
-        .icon-box { background-color: #f5f5f5; }
-        .prose, .prose p, .prose h3, .prose h4 { color: #18181b; }
-        .hero-section .prose, .hero-section .prose p, .hero-section .prose h1, .hero-section .prose h3, .hero-section .prose h4 { color: #ffffff !important; }
-        .footer-section { background-color: #18181b; }
-
-        /* Адаптивность */
-        @media (max-width: 640px) {
-            .hero-section .text-4xl { font-size: 1.5rem; }
-            .hero-section .text-lg { font-size: 1rem; }
-            .max-w-4xl { max-width: 100%; padding: 0 1rem; }
-            .flex-col-mobile { flex-direction: column; }
-            .justify-between-mobile { justify-content: center; }
-            .space-x-2-mobile { gap: 0.5rem; }
-            .grid-cols-1-mobile { grid-template-columns: 1fr; }
-            .grid-cols-2-mobile, .grid-cols-3-mobile { grid-template-columns: 1fr; }
-            .p-8-mobile { padding: 1rem; }
-            .py-12-mobile { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-            .mt-12-mobile { margin-top: 1.5rem; }
-            .h-60vh-mobile { height: 40vh; }
-            .icon-box-mobile { margin-bottom: 1rem; }
-            .footer-section .text-3xl { font-size: 1.5rem; }
-            .footer-section .text-lg { font-size: 1rem; }
-            .px-8-mobile { padding-left: 1rem; padding-right: 1rem; }
-        }
+        .pro-item::before { content: '✔'; color: #34d399; font-weight: bold; font-size: 1.25rem; position: absolute; left: 0; top: 2px; }
+        .con-item::before { content: '✘'; color: #f87171; font-weight: bold; font-size: 1.25rem; position: absolute; left: 0; top: 2px; }
     </style>
 </head>
-<body class="text-zinc-800">
-    <header class="bg-black/90 backdrop-blur-lg fixed w-full top-0 z-50 shadow-md">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <img src="Logo_b_2.jpeg" alt="FLOOR DSGN Black Logo" class="h-12 transition-transform duration-300 hover:scale-110 fade-in">
-                <div class="language-switcher">
-                    <button id="lang-toggle" class="px-4 py-2 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-transform duration-300 hover:scale-105 fade-in">RU</button>
-                    <div class="language-dropdown">
-                        <button onclick="changeLanguage('ru')">RU</button>
-                        <button onclick="changeLanguage('en')">EN</button>
-                        <button onclick="changeLanguage('he')">HE</button>
+<body class="text-gray-800">
+
+    <header class="bg-gray-900 sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-3">
+                <img loading="lazy" src="Logo_w_2.jpeg" alt="FLOOR DSGN White Logo" class="h-12">
+                
+                <div class="flex items-center space-x-6">
+                    <div class="hidden sm:flex items-center space-x-4">
+                        <a href="#" title="Instagram" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" title="Facebook" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" title="Telegram" class="text-gray-400 hover:text-white transition"><i class="fab fa-telegram-plane fa-lg"></i></a>
+                    </div>
+                    
+                    <div class="flex items-center space-x-2">
+                        <a href="#contact" id="header-button" title="Свяжитесь с нами" class="px-4 py-2 bg-white text-gray-900 font-semibold rounded-md hover:bg-gray-200 transition-transform duration-300 hover:scale-105">Заказать расчет</a>
+                        <div class="language-switcher">
+                            <button id="lang-toggle" class="px-3 py-2 bg-gray-700 text-white font-semibold rounded-md hover:bg-gray-600 transition">RU</button>
+                            <div class="language-dropdown">
+                                <button onclick="changeLanguage('ru')">RU</button>
+                                <button onclick="changeLanguage('en')">EN</button>
+                                <button onclick="changeLanguage('he')">HE</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    <main class="pt-24">
+
+    <main>
         <section class="hero-section relative flex items-center text-white overflow-hidden">
             <div class="hero-overlay"></div>
             <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 id="hero-title" class="text-4xl md:text-6xl font-extrabold tracking-tight slide-up">Resin: Жидкий камень вашего интерьера</h1>
-                <p id="hero-subtitle" class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-zinc-300 slide-up">Технология создания идеально гладкой, бесшовной и монолитной поверхности с премиальной эстетикой.</p>
+                <p id="hero-subtitle" class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-gray-300 slide-up">Технология создания идеально гладкой, бесшовной и монолитной поверхности с премиальной эстетикой.</p>
             </div>
         </section>
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 space-y-16">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 space-y-24">
             <section id="intro" class="fade-in">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 id="intro-h3-0" class="text-xl font-bold mb-4">Философия дизайна</h3>
-                        <p id="intro-p1" class="text-gray-600">Полимерные полы (Resin) — это не просто покрытие, а целая философия. Материал наносится в жидком виде, образуя после полимеризации прочное, долговечное и абсолютно монолитное полотно. Это выбор для тех, кто ценит чистоту линий и непрерывность пространства.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 id="intro-h3-1" class="text-xl font-bold mb-4">История и Технология</h3>
-                        <p id="intro-p2" class="text-gray-600">Придя из промышленности, где ценилась их износостойкость, они были адаптированы дизайнерами для жилых пространств. В основе — эпоксидные или полиуретановые смолы, смешанные с отвердителем и пигментами.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 id="intro-h3-2" class="text-xl font-bold mb-4">Применение и Эстетика</h3>
-                        <p id="intro-p3" class="text-gray-600">Идеальное решение для шоу-румов, галерей и апартаментов. Глянцевый финиш расширяет пространство, матовый — создает уют. Возможность колеровки в любой цвет делает его мощным инструментом в руках архитектора.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="handcrafted" class="fade-in">
-                <h2 id="handcrafted-title" class="text-3xl font-bold section-title mb-8 scale-pop">Ручная работа и особенности климата</h2>
-                <div class="bg-white p-8 rounded-lg border fade-in">
-                    <h3 id="handcrafted-h3" class="text-2xl font-bold mb-4 scale-pop">Искусство в деталях</h3>
-                    <p id="handcrafted-p1" class="text-zinc-800">Каждый пол Resin — это результат кропотливой ручной работы. Это не фабричный продукт, а уникальное произведение, созданное мастером прямо на объекте. Именно поэтому финальный вид и качество покрытия напрямую зависят от опыта и квалификации специалиста.</p>
-                    <p id="handcrafted-p2" class="mt-4 text-zinc-800 fade-in">Реализация таких проектов, особенно в условиях жаркого климата Израиля, представляет собой серьезный вызов. Высокая температура ускоряет химические реакции в смоле, сокращая время её жизни и требуя от мастера максимальной скорости и точности. Особенности самого материала также требуют строгого соблюдения технологии: от подготовки основания до контроля влажности и температуры в помещении. Это сложный процесс, который доверяют только профессионалам.</p>
-                </div>
-            </section>
-            <section id="pros-cons" class="fade-in">
-                <h2 id="pros-cons-title" class="text-3xl font-bold section-title mb-8 scale-pop">Ключевые характеристики</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="fade-in">
-                        <h3 id="pros-title" class="text-xl font-semibold mb-4 scale-pop">Преимущества</h3>
-                        <ul class="space-y-4">
-                            <li id="pros-1" class="pro-item pro-con-item fade-in"><b>Бесшовность:</b> Абсолютно монолитная и гигиеничная поверхность без пор и стыков.</li>
-                            <li id="pros-2" class="pro-item pro-con-item fade-in" style="transition-delay: 0.1s"><b>Прочность:</b> Высокая стойкость к истиранию, ударам и химическим веществам.</li>
-                            <li id="pros-3" class="pro-item pro-con-item fade-in" style="transition-delay: 0.2s"><b>Эстетика:</b> Безграничный выбор цветов и степеней глянца для уникального дизайна.</li>
-                        </ul>
-                    </div>
-                    <div class="fade-in">
-                        <h3 id="cons-title" class="text-xl font-semibold mb-4 scale-pop">Особенности</h3>
-                        <ul class="space-y-4">
-                            <li id="cons-1" class="con-item pro-con-item fade-in"><b>Требовательность к основанию:</b> Нужна идеально ровная, прочная и сухая база.</li>
-                            <li id="cons-2" class="con-item pro-con-item fade-in" style="transition-delay: 0.1s"><b>Сложность нанесения:</b> Требует высокой квалификации и контроля условий.</li>
-                            <li id="cons-3" class="con-item pro-con-item fade-in" style="transition-delay: 0.2s"><b>Чувствительность к УФ:</b> Некоторые виды смол могут желтеть без защитного лака.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            <section id="application" class="fade-in">
-                <h2 id="application-title" class="text-3xl font-bold section-title mb-8 scale-pop">Области применения</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="icon-box p-6 rounded-lg text-center fade-in">
-                        <span class="text-4xl icon-float">🏡</span>
-                        <h4 id="application-1-title" class="text-lg font-semibold mt-4 mb-2 scale-pop">Виллы и квартиры</h4>
-                        <p id="application-1-text" class="text-zinc-800">Создание единого пространства в гостиных, кухнях и ванных комнатах.</p>
-                    </div>
-                    <div class="icon-box p-6 rounded-lg text-center fade-in" style="transition-delay: 0.1s">
-                        <span class="text-4xl icon-float">🏢</span>
-                        <h4 id="application-2-title" class="text-lg font-semibold mt-4 mb-2 scale-pop">Офисы и коворкинги</h4>
-                        <p id="application-2-text" class="text-zinc-800">Прочные и стильные полы для зон с высокой проходимостью.</p>
-                    </div>
-                    <div class="icon-box p-6 rounded-lg text-center fade-in" style="transition-delay: 0.2s">
-                        <span class="text-4xl icon-float">🛍️</span>
-                        <h4 id="application-3-title" class="text-lg font-semibold mt-4 mb-2 scale-pop">Магазины и бутики</h4>
-                        <p id="application-3-text" class="text-zinc-800">Эффектный фон, подчеркивающий эксклюзивность товаров.</p>
-                    </div>
-                    <div class="icon-box p-6 rounded-lg text-center fade-in" style="transition-delay: 0.3s">
-                        <span class="text-4xl icon-float">🎨</span>
-                        <h4 id="application-4-title" class="text-lg font-semibold mt-4 mb-2 scale-pop">Дизайн-студии и галереи</h4>
-                        <p id="application-4-text" class="text-zinc-800">Нейтральная и чистая основа для демонстрации искусства и дизайна.</p>
-                    </div>
-                    <div class="icon-box p-6 rounded-lg text-center fade-in" style="transition-delay: 0.4s">
-                        <span class="text-4xl icon-float">☕</span>
-                        <h4 id="application-5-title" class="text-lg font-semibold mt-4 mb-2 scale-pop">Рестораны и кафе</h4>
-                        <p id="application-5-text" class="text-zinc-800">Гигиеничные и легкие в уходе полы для современных заведений.</p>
-                    </div>
-                    <div class="icon-box p-6 rounded-lg text-center fade-in" style="transition-delay: 0.5s">
-                        <span class="text-4xl icon-float">🚗</span>
-                        <h4 id="application-6-title" class="text-lg font-semibold mt-4 mb-2 scale-pop">Showrooms</h4>
-                        <p id="application-6-text" class="text-zinc-800">Идеальная поверхность для презентации автомобилей, мебели и других продуктов.</p>
-                    </div>
-                </div>
-            </section>
-            <section id="compositions" class="fade-in">
-                <h2 id="compositions-title" class="text-3xl font-bold section-title mb-8 scale-pop">Составы: Эпоксид vs Полиуретан</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white p-6 rounded-lg border fade-in">
-                        <h4 id="compositions-epoxy-title" class="text-xl font-bold mb-2 scale-pop">Эпоксидные смолы (Epoxy)</h4>
-                        <p id="compositions-epoxy-text" class="text-zinc-800">Отличаются высокой твердостью, химической стойкостью и кристальной прозрачностью. Идеальны для создания декоративных полов с 3D-эффектами, глянцевых финишей и полов с высокой нагрузкой в гаражах или на складах.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg border fade-in" style="transition-delay: 0.1s">
-                        <h4 id="compositions-pu-title" class="text-xl font-bold mb-2 scale-pop">Полиуретановые смолы (PU)</h4>
-                        <p id="compositions-pu-text" class="text-zinc-800">Более эластичны и устойчивы к царапинам и УФ-излучению. Создают комфортное, тактильно приятное покрытие. Идеальны для жилых помещений, офисов и магазинов, где важен комфорт и стойкость к истиранию.</p>
-                    </div>
-                </div>
-            </section>
-            <section id="comparison" class="fade-in">
-                <h2 id="comparison-title" class="text-3xl font-bold section-title mb-8 scale-pop">Сравнение с другими материалами</h2>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse fade-in">
-                        <thead>
-                            <tr class="bg-gray-100">
-                                <th id="comparison-th1" class="p-4 font-semibold border-b">Параметр</th>
-                                <th id="comparison-th2" class="p-4 font-semibold border-b text-center bg-gray-200">Resin</th>
-                                <th id="comparison-th3" class="p-4 font-semibold border-b text-center">Микроцемент</th>
-                                <th id="comparison-th4" class="p-4 font-semibold border-b text-center">Декоративный бетон</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b fade-in">
-                                <td id="comparison-row1-col1" class="p-4 font-medium">Бесшовность</td>
-                                <td id="comparison-row1-col2" class="p-4 text-center font-bold text-green-600">Абсолютная</td>
-                                <td id="comparison-row1-col3" class="p-4 text-center">Высокая</td>
-                                <td id="comparison-row1-col4" class="p-4 text-center">Высокая (с нарезными швами)</td>
-                            </tr>
-                            <tr class="border-b fade-in" style="transition-delay: 0.1s">
-                                <td id="comparison-row2-col1" class="p-4 font-medium">Толщина</td>
-                                <td id="comparison-row2-col2" class="p-4 text-center">2-4 мм</td>
-                                <td id="comparison-row2-col3" class="p-4 text-center">2-3 мм</td>
-                                <td id="comparison-row2-col4" class="p-4 text-center">от 5 мм</td>
-                            </tr>
-                            <tr class="border-b fade-in" style="transition-delay: 0.2s">
-                                <td id="comparison-row3-col1" class="p-4 font-medium">Тактильность</td>
-                                <td id="comparison-row3-col2" class="p-4 text-center">Тёплый, гладкий</td>
-                                <td id="comparison-row3-col3" class="p-4 text-center">Прохладный, фактурный</td>
-                                <td id="comparison-row3-col4" class="p-4 text-center">Холодный, твёрдый</td>
-                            </tr>
-                            <tr class="border-b fade-in" style="transition-delay: 0.3s">
-                                <td id="comparison-row4-col1" class="p-4 font-medium">Эластичность</td>
-                                <td id="comparison-row4-col2" class="p-4 text-center">Высокая (PU)</td>
-                                <td id="comparison-row4-col3" class="p-4 text-center">Средняя</td>
-                                <td id="comparison-row4-col4" class="p-4 text-center font-bold text-red-600">Нет</td>
-                            </tr>
-                            <tr class="fade-in" style="transition-delay: 0.4s">
-                                <td id="comparison-row5-col1" class="p-4 font-medium">Вариативность дизайна</td>
-                                <td id="comparison-row5-col2" class="p-4 text-center">Безграничная</td>
-                                <td id="comparison-row5-col3" class="p-4 text-center">Высокая</td>
-                                <td id="comparison-row5-col4" class="p-4 text-center">Средняя</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-            <section id="care" class="fade-in">
-                <h2 id="care-title" class="text-3xl font-bold section-title mb-8 scale-pop">Уход, влагостойкость и обновление</h2>
-                <div class="space-y-6">
-                    <div class="fade-in">
-                        <h4 id="care-moisture-title" class="text-xl font-semibold scale-pop">Влагостойкость</h4>
-                        <p id="care-moisture-text" class="text-zinc-800">Благодаря своей монолитной структуре, полимерные полы абсолютно водонепроницаемы. Это делает их идеальным решением для ванных комнат, кухонь и других влажных зон, исключая риск протечек и образования плесени.</p>
-                    </div>
-                    <div class="fade-in" style="transition-delay: 0.1s">
-                        <h4 id="care-maintenance-title" class="text-xl font-semibold scale-pop">Уход</h4>
-                        <p id="care-maintenance-text" class="text-zinc-800">Уход за полами Resin предельно прост. Отсутствие швов исключает скопление грязи. Для уборки достаточно влажной ткани и нейтральных моющих средств. Поверхность легко очищается от большинства бытовых загрязнений.</p>
-                    </div>
-                    <div class="fade-in" style="transition-delay: 0.2s">
-                        <h4 id="care-renewal-title" class="text-xl font-semibold scale-pop">Обновление</h4>
-                        <p id="care-renewal-text" class="text-zinc-800">Одно из ключевых преимуществ — ремонтопригодность. Со временем, если верхний защитный слой износился или появились царапины, его можно легко обновить. Поверхность шлифуется и покрывается новым слоем лака, возвращая полу первозданный вид без необходимости полного демонтажа.</p>
-                    </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            <section id="handcrafted" class="bg-white rounded-xl shadow-lg p-8 md:p-12 fade-in">
+                </section>
+            </div>
     </main>
-    <footer id="contact" class="footer-section text-white">
-        <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center scale-pop">
-            <h2 id="footer-title" class="text-3xl font-bold">Готовы создать идеальный пол?</h2>
-            <p id="footer-subtitle" class="mt-4 text-lg text-gray-300">Свяжитесь с нами для бесплатной консультации и расчета стоимости вашего проекта.</p>
-            <div class="mt-8 space-x-4">
-                <a href="https://wa.me/972509051065" id="footer-button-whatsapp" class="inline-block px-6 py-3 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transition-transform duration-300 hover:scale-105 fade-in">WhatsApp</a>
-                <a href="https://t.me/YourBotName" id="footer-button-telegram" class="inline-block px-6 py-3 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600 transition-transform duration-300 hover:scale-105 fade-in">Telegram</a>
-            </div>
-            <div class="mt-8 flex justify-center space-x-4">
-                <a href="https://www.tiktok.com/@yourusername" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.youtube.com/@yourchannel" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.instagram.com/yourusername" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/yourpage" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook"></i></a>
-            </div>
-            <div class="mt-12 border-t border-gray-600 pt-8">
-                <img src="Logo_w_2.jpeg" alt="FLOOR DSGN White Logo" class="h-12 mx-auto transition-transform duration-300 hover:scale-110 fade-in">
-                <p id="footer-copyright" class="mt-4 text-sm text-gray-400">© 2025 FLOOR | DSGN. Все права защищены.</p>
-            </div>
-        </div>
-    </footer>
-    <button id="scroll-top" onclick="window.scrollTo(0, 0)" style="position: fixed; bottom: 20px; right: 20px; padding: 10px; background: #18181b; color: white; border-radius: 5px; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" class="fade-in">Наверх</button>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <footer id="contact" class="bg-gray-900 text-white">
+        </footer>
+
+    <button id="scroll-top" onclick="window.scrollTo(0, 0)" style="position: fixed; bottom: 20px; right: 20px; padding: 10px; background: #1a202c; color: white; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; border: none; cursor: pointer; opacity: 0; transition: opacity 0.3s, transform 0.3s;" class="fade-in">↑</button>
+    
     <script>
         const translations = {
             ru: {
@@ -365,7 +117,6 @@
                 "header-button": "Заказать расчет",
                 "hero-title": "Resin: Жидкий камень вашего интерьера",
                 "hero-subtitle": "Технология создания идеально гладкой, бесшовной и монолитной поверхности с премиальной эстетикой.",
-                "intro-h3-0": "Философия дизайна",
                 "intro-p1": "Полимерные полы (Resin) — это не просто покрытие, а целая философия дизайна. Материал наносится в жидком виде, образуя после полимеризации прочное, долговечное и абсолютно монолитное полотно. Это выбор для тех, кто ценит чистоту линий и непрерывность пространства.",
                 "intro-h3-1": "История и Технология",
                 "intro-p2": "Придя из высокотехнологичной промышленности, где ценилась их износостойкость и гигиеничность, полимерные полы были адаптированы ведущими дизайнерами для жилых и общественных пространств. В основе — эпоксидные или полиуретановые смолы (resins), которые смешиваются с отвердителем, пигментами и наполнителями, создавая безграничные возможности для дизайна.",
@@ -442,10 +193,164 @@
                 "scroll-top": "Наверх"
             },
             en: {
-                // ... English translations ...
+                "page-title": "Resin: Complete Guide to Polymer Floors | FLOOR DSGN",
+                "header-button": "Order Calculation",
+                "hero-title": "Resin: The Liquid Stone of Your Interior",
+                "hero-subtitle": "A technology for creating perfectly smooth, seamless, and monolithic surfaces with premium aesthetics.",
+                "intro-p1": "Polymer floors (Resin) are not just a coating but a whole philosophy of design. The material is applied in liquid form, forming a strong, durable, and completely seamless surface after curing. It’s the choice for those who value clean lines and spatial continuity.",
+                "intro-h3-1": "History and Technology",
+                "intro-p2": "Originating from high-tech industries where their durability and hygiene were valued, polymer floors have been adapted by leading designers for residential and public spaces. At their core are epoxy or polyurethane resins, mixed with hardeners, pigments, and fillers, offering endless design possibilities.",
+                "intro-h3-2": "Application and Aesthetics",
+                "intro-p3": "Resin is the ideal solution for showrooms, galleries, boutiques, and modern apartments. A glossy finish visually expands space, while a matte finish creates a sense of coziness and depth. The ability to color-match any RAL or NCS shade makes it a powerful tool for architects.",
+                "handcrafted-title": "Handcrafted Work and Climate Considerations",
+                "handcrafted-h3": "The Art of Detail",
+                "handcrafted-p1": "Each Resin floor is the result of meticulous handcrafted work. It’s not a factory product but a unique creation crafted on-site by a skilled artisan. Thus, the final appearance and quality depend directly on the expertise and qualifications of the specialist.",
+                "handcrafted-p2": "Implementing such projects, especially in Israel’s hot climate, poses a significant challenge. High temperatures accelerate chemical reactions in the resin, reducing its working time and requiring utmost precision and speed from the artisan. The material’s properties also demand strict adherence to technology, from substrate preparation to controlling humidity and temperature. This complex process is entrusted only to professionals.",
+                "pros-cons-title": "Key Characteristics",
+                "pros-title": "Advantages",
+                "pros-1": "<b>Seamlessness:</b> A completely monolithic and hygienic surface without pores or joints.",
+                "pros-2": "<b>Durability:</b> High resistance to abrasion, impacts, and chemicals.",
+                "pros-3": "<b>Aesthetics:</b> Endless color and gloss options for unique designs.",
+                "cons-title": "Considerations",
+                "cons-1": "<b>Substrate Requirements:</b> Requires a perfectly flat, strong, and dry base.",
+                "cons-2": "<b>Application Complexity:</b> Demands high skill and controlled conditions.",
+                "cons-3": "<b>UV Sensitivity:</b> Some resins may yellow without protective varnish.",
+                "application-title": "Applications",
+                "application-1-title": "Villas and Apartments",
+                "application-1-text": "Creating a unified space in living rooms, kitchens, and bathrooms.",
+                "application-2-title": "Offices and Coworking Spaces",
+                "application-2-text": "Durable and stylish floors for high-traffic areas.",
+                "application-3-title": "Shops and Boutiques",
+                "application-3-text": "A striking backdrop that highlights product exclusivity.",
+                "application-4-title": "Design Studios and Galleries",
+                "application-4-text": "A neutral and clean foundation for showcasing art and design.",
+                "application-5-title": "Restaurants and Cafes",
+                "application-5-text": "Hygienic and easy-to-maintain floors for modern establishments.",
+                "application-6-title": "Showrooms",
+                "application-6-text": "An ideal surface for presenting cars, furniture, and other products.",
+                "compositions-title": "Compositions: Epoxy vs Polyurethane",
+                "compositions-epoxy-title": "Epoxy Resins",
+                "compositions-epoxy-text": "Known for high hardness, chemical resistance, and crystal clarity. Ideal for creating decorative floors with 3D effects, glossy finishes, and high-load floors in garages or warehouses.",
+                "compositions-pu-title": "Polyurethane Resins (PU)",
+                "compositions-pu-text": "More elastic and resistant to scratches and UV radiation. They create a comfortable, tactilely pleasant coating. Ideal for residential spaces, offices, and shops where comfort and durability are key.",
+                "comparison-title": "Comparison with Other Materials",
+                "comparison-th1": "Parameter",
+                "comparison-th2": "Resin",
+                "comparison-th3": "Microcement",
+                "comparison-th4": "Decorative Concrete",
+                "comparison-row1-col1": "Seamlessness",
+                "comparison-row1-col2": "Absolute",
+                "comparison-row1-col3": "High",
+                "comparison-row1-col4": "High (with cut joints)",
+                "comparison-row2-col1": "Thickness",
+                "comparison-row2-col2": "2-4 mm",
+                "comparison-row2-col3": "2-3 mm",
+                "comparison-row2-col4": "From 5 mm",
+                "comparison-row3-col1": "Tactile Feel",
+                "comparison-row3-col2": "Warm, smooth",
+                "comparison-row3-col3": "Cool, textured",
+                "comparison-row3-col4": "Cold, hard",
+                "comparison-row4-col1": "Elasticity",
+                "comparison-row4-col2": "High (PU)",
+                "comparison-row4-col3": "Medium",
+                "comparison-row4-col4": "None",
+                "comparison-row5-col1": "Design Versatility",
+                "comparison-row5-col2": "Unlimited",
+                "comparison-row5-col3": "High",
+                "comparison-row5-col4": "Medium",
+                "care-title": "Care, Water Resistance, and Renewal",
+                "care-moisture-title": "Water Resistance",
+                "care-moisture-text": "Due to their monolithic structure, polymer floors are completely waterproof, making them ideal for bathrooms, kitchens, and other wet areas, eliminating the risk of leaks and mold.",
+                "care-maintenance-title": "Maintenance",
+                "care-maintenance-text": "Maintaining Resin floors is extremely simple. The absence of seams prevents dirt accumulation. A damp cloth and neutral detergents are sufficient for cleaning most household stains.",
+                "care-renewal-title": "Renewal",
+                "care-renewal-text": "A key advantage is repairability. Over time, if the top protective layer wears out or scratches appear, it can be easily renewed. The surface is sanded and coated with a new layer of varnish, restoring its original look without full replacement.",
+                "footer-title": "Ready to Create the Perfect Floor?",
+                "footer-subtitle": "Contact us for a free consultation and project cost estimate.",
+                "footer-button-whatsapp": "WhatsApp",
+                "footer-button-telegram": "Telegram",
+                "footer-copyright": "© 2025 FLOOR | DSGN. All rights reserved.",
+                "scroll-top": "Back to Top"
             },
             he: {
-                // ... Hebrew translations ...
+                "page-title": "Resin: מדריך מלא לרצפות פולימריות | FLOOR DSGN",
+                "header-button": "הזמן חישוב",
+                "hero-title": "Resin: האבן הנוזלית של הפנים שלך",
+                "hero-subtitle": "טכנולוגיה ליצירת משטח חלק, חסר תפרים ומונוליתי עם אסתטיקה יוקרתית.",
+                "intro-p1": "רצפות פולימריות (Resin) אינן רק ציפוי, אלא פילוסופיית עיצוב שלמה. החומר מוחל בצורה נוזלית, ויוצר לאחר התקשות משטח חזק, עמיד ומונוליתי לחלוטין. זו הבחירה של מי שמעריך קווים נקיים והמשכיות מרחבית.",
+                "intro-h3-1": "היסטוריה וטכנולוגיה",
+                "intro-p2": "מקורן בתעשיות היי-טק שבהן הוערכו עמידותן והיגייניותן, רצפות פולימריות אומצו על ידי מעצבים מובילים לחללים מגורים וציבוריים. בבסיסן נמצאות שרפות אפוקסי או פוליאוריתן, המעורבבות עם מקשה, פיגמנטים וחומרי מילוי, המאפשרים אפשרויות עיצוב בלתי מוגבלות.",
+                "intro-h3-2": "יישום ואסתטיקה",
+                "intro-p3": "Resin היא הפתרון האידיאלי לאולמות תצוגה, גלריות, בוטיקים ודירות מודרניות. גימור מבריק מרחיב חזותית את החלל, בעוד גימור מט יוצר תחושת נעימות ועומק. היכולת להתאים כל צבע לפי RAL או NCS הופכת אותו לכלי רב עוצמה בידי אדריכלים.",
+                "handcrafted-title": "עבודת יד ואתגרי האקלים",
+                "handcrafted-h3": "אומנות בפרטים",
+                "handcrafted-p1": "כל רצפת Resin היא תוצאה של עבודת יד קפדנית. זהו אינו מוצר מפעלי, אלא יצירה ייחודית שנוצרת באתר על ידי אומן מיומן. לכן, המראה הסופי ואיכות הציפוי תלויים ישירות במיומנות ובהכשרה של המומחה.",
+                "handcrafted-p2": "יישום פרויקטים כאלה, במיוחד בתנאי האקלים החם של ישראל, מהווה אתגר משמעותי. טמפרטורות גבוהות מאיצות את התגובות הכימיות בשרף, מקצרות את זמן העבודה שלו ודורשות מהאומן דיוק ומהירות מרביים. מאפייני החומר דורשים גם הקפדה על טכנולוגיה: מהכנת התשתית ועד שליטה בלחות ובטמפרטורה בחדר. זהו תהליך מורכב שמופקד רק בידי מקצוענים.",
+                "pros-cons-title": "מאפיינים מרכזיים",
+                "pros-title": "יתרונות",
+                "pros-1": "<b>חוסר תפרים:</b> משטח מונוליתי והיגייני לחלוטין ללא נקבוביות או חיבורים.",
+                "pros-2": "<b>עמידות:</b> עמידות גבוהה לשחיקה, פגיעות וכימיקלים.",
+                "pros-3": "<b>אסתטיקה:</b> בחירה בלתי מוגבלת של צבעים ורמות ברק לעיצוב ייחודי.",
+                "cons-title": "שיקולים",
+                "cons-1": "<b>דרישות תשתית:</b> נדרשת תשתית חלקה, חזקה ויבשה לחלוטין.",
+                "cons-2": "<b>מורכבות היישום:</b> דורש מיומנות גבוהה ותנאים מבוקרים.",
+                "cons-3": "<b>רגישות לקרינת UV:</b> חלק מהשרפות עלולות להצהיב ללא לכה מגינה.",
+                "application-title": "יישומים",
+                "application-1-title": "וילות ודירות",
+                "application-1-text": "יצירת חלל אחיד בסלונים, מטבחים וחדרי אמבטיה.",
+                "application-2-title": "משרדים וחללי עבודה משותפים",
+                "application-2-text": "רצפות עמידות ומסוגננות לאזורים עם תנועה גבוהה.",
+                "application-3-title": "חנויות ובוטיקים",
+                "application-3-text": "רקע מרשים שמדגיש את הבלעדיות של המוצרים.",
+                "application-4-title": "סטודיואים לעיצוב וגלריות",
+                "application-4-text": "בסיס נייטרלי ונקי להצגת אמנות ועיצוב.",
+                "application-5-title": "מסעדות ובתי קפה",
+                "application-5-text": "רצפות היגייניות וקלות לתחזוקה למפעלים מודרניים.",
+                "application-6-title": "אולמות תצוגה",
+                "application-6-text": "משטח אידיאלי להצגת מכוניות, רהיטים ומוצרים אחרים.",
+                "compositions-title": "הרכבים: אפוקסי לעומת פוליאוריתן",
+                "compositions-epoxy-title": "שרפות אפוקסי",
+                "compositions-epoxy-text": "ידועות בקשיחות גבוהה, עמידות כימית ושקיפות קריסטלית. אידיאליות ליצירת רצפות דקורטיביות עם אפקטים תלת-ממדיים, גימורים מבריקים ורצפות בעומס גבוה במוסכים או מחסנים.",
+                "compositions-pu-title": "שרפות פוליאוריתן (PU)",
+                "compositions-pu-text": "גמישות יותר ועמידות בפני שריטות וקרינת UV. יוצרות ציפוי נוח ונעים למגע. אידיאליות לחללים מגורים, משרדים וחנויות שבהם נוחות ועמידות חשובות.",
+                "comparison-title": "השוואה לחומרים אחרים",
+                "comparison-th1": "פרמטר",
+                "comparison-th2": "Resin",
+                "comparison-th3": "מיקרוצמנט",
+                "comparison-th4": "בטון דקורטיבי",
+                "comparison-row1-col1": "חוסר תפרים",
+                "comparison-row1-col2": "מוחלט",
+                "comparison-row1-col3": "גבוה",
+                "comparison-row1-col4": "גבוה (עם חיבורים חתוכים)",
+                "comparison-row2-col1": "עובי",
+                "comparison-row2-col2": "2-4 מ\"מ",
+                "comparison-row2-col3": "2-3 מ\"מ",
+                "comparison-row2-col4": "מ-5 מ\"מ",
+                "comparison-row3-col1": "תחושה",
+                "comparison-row3-col2": "חם, חלק",
+                "comparison-row3-col3": "קר, בעל מרקם",
+                "comparison-row3-col4": "קר, קשה",
+                "comparison-row4-col1": "גמישות",
+                "comparison-row4-col2": "גבוהה (PU)",
+                "comparison-row4-col3": "בינונית",
+                "comparison-row4-col4": "אין",
+                "comparison-row5-col1": "גיוון עיצובי",
+                "comparison-row5-col2": "בלתי מוגבל",
+                "comparison-row5-col3": "גבוה",
+                "comparison-row5-col4": "בינוני",
+                "care-title": "תחזוקה, עמידות למים וחידוש",
+                "care-moisture-title": "עמידות למים",
+                "care-moisture-text": "בזכות המבנה המונוליתי שלהם, רצפות פולימריות עמידות לחלוטין למים, מה שהופך אותם לפתרון אידיאלי לחדרי אמבטיה, מטבחים ואזורים רטובים אחרים, תוך מניעת דליפות וטחב.",
+                "care-maintenance-title": "תחזוקה",
+                "care-maintenance-text": "תחזוקת רצפות Resin פשוטה ביותר. היעדר תפרים מונע הצטברות לכלוך. מטלית לחה וחומרי ניקוי נייטרליים מספיקים לניקוי רוב הכתמים הביתיים.",
+                "care-renewal-title": "חידוש",
+                "care-renewal-text": "יתרון מרכזי הוא היכולת לחדש. עם הזמן, אם השכבה המגינה העליונה נשחקת או מופיעות שריטות, ניתן לחדש אותה בקלות. המשטח מושחז ומצופה בשכבת לכה חדשה, ומחזיר לרצפה את המראה המקורי ללא צורך בהחלפה מלאה.",
+                "footer-title": "מוכנים ליצור את הרצפה המושלמת?",
+                "footer-subtitle": "צרו קשר לקבלת ייעוץ חינם והערכת עלות הפרויקט שלכם.",
+                "footer-button-whatsapp": "וואטסאפ",
+                "footer-button-telegram": "טלגרם",
+                "footer-copyright": "© 2025 FLOOR | DSGN. כל הזכויות שמורות.",
+                "scroll-top": "חזור למעלה"
             }
         };
 
@@ -466,6 +371,16 @@
             }, { threshold: 0.1 });
 
             document.querySelectorAll('.fade-in, .scale-pop, .slide-up').forEach(el => observer.observe(el));
+            
+            // Add scroll-to-top button visibility logic
+            const scrollTopButton = document.getElementById('scroll-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollTopButton.style.opacity = '1';
+                } else {
+                    scrollTopButton.style.opacity = '0';
+                }
+            });
         });
     </script>
 </body>
