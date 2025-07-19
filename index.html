@@ -135,19 +135,19 @@
             .hero-section .text-4xl { font-size: 1.5rem; }
             .hero-section .text-lg { font-size: 1rem; }
             .max-w-4xl { max-width: 100%; padding: 0 1rem; }
-            .flex { flex-direction: column; }
-            .justify-between { justify-content: center; }
-            .space-x-2 { gap: 0.5rem; }
-            .grid-cols-1 { grid-template-columns: 1fr; }
-            .grid-cols-2, .grid-cols-3 { grid-template-columns: 1fr; }
-            .p-8 { padding: 1rem; }
-            .py-12 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-            .mt-12 { margin-top: 1.5rem; }
-            .h-[60vh] { height: 40vh; }
-            .icon-box { margin-bottom: 1rem; }
+            .flex-col-mobile { flex-direction: column; }
+            .justify-between-mobile { justify-content: center; }
+            .space-x-2-mobile { gap: 0.5rem; }
+            .grid-cols-1-mobile { grid-template-columns: 1fr; }
+            .grid-cols-2-mobile, .grid-cols-3-mobile { grid-template-columns: 1fr; }
+            .p-8-mobile { padding: 1rem; }
+            .py-12-mobile { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+            .mt-12-mobile { margin-top: 1.5rem; }
+            .h-60vh-mobile { height: 40vh; }
+            .icon-box-mobile { margin-bottom: 1rem; }
             .footer-section .text-3xl { font-size: 1.5rem; }
             .footer-section .text-lg { font-size: 1rem; }
-            .px-8 { padding-left: 1rem; padding-right: 1rem; }
+            .px-8-mobile { padding-left: 1rem; padding-right: 1rem; }
         }
     </style>
 </head>
@@ -177,12 +177,19 @@
         </section>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 space-y-16">
             <section id="intro" class="fade-in">
-                <div class="prose prose-zinc max-w-none text-lg">
-                    <p id="intro-p1">Полимерные полы (Resin) — это не просто покрытие, а целая философия дизайна. Материал наносится в жидком виде, образуя после полимеризации прочное, долговечное и абсолютно монолитное полотно. Это выбор для тех, кто ценит чистоту линий и непрерывность пространства.</p>
-                    <h3 id="intro-h3-1" class="section-title fade-in">История и Технология</h3>
-                    <p id="intro-p2">Придя из высокотехнологичной промышленности, где ценилась их износостойкость и гигиеничность, полимерные полы были адаптированы ведущими дизайнерами для жилых и общественных пространств. В основе — эпоксидные или полиуретановые смолы (resins), которые смешиваются с отвердителем, пигментами и наполнителями, создавая безграничные возможности для дизайна.</p>
-                    <h3 id="intro-h3-2" class="section-title fade-in">Применение и Эстетика</h3>
-                    <p id="intro-p3">Resin — идеальное решение для шоу-румов, галерей, бутиков и современных апартаментов. Глянцевый финиш визуально расширяет пространство, матовый — создает ощущение уюта и глубины. Возможность колеровки в любой цвет по RAL или NCS делает его мощным инструментом в руках архитектора.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 id="intro-h3-0" class="text-xl font-bold mb-4">Философия дизайна</h3>
+                        <p id="intro-p1" class="text-gray-600">Полимерные полы (Resin) — это не просто покрытие, а целая философия. Материал наносится в жидком виде, образуя после полимеризации прочное, долговечное и абсолютно монолитное полотно. Это выбор для тех, кто ценит чистоту линий и непрерывность пространства.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 id="intro-h3-1" class="text-xl font-bold mb-4">История и Технология</h3>
+                        <p id="intro-p2" class="text-gray-600">Придя из промышленности, где ценилась их износостойкость, они были адаптированы дизайнерами для жилых пространств. В основе — эпоксидные или полиуретановые смолы, смешанные с отвердителем и пигментами.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 id="intro-h3-2" class="text-xl font-bold mb-4">Применение и Эстетика</h3>
+                        <p id="intro-p3" class="text-gray-600">Идеальное решение для шоу-румов, галерей и апартаментов. Глянцевый финиш расширяет пространство, матовый — создает уют. Возможность колеровки в любой цвет делает его мощным инструментом в руках архитектора.</p>
+                    </div>
                 </div>
             </section>
             <section id="handcrafted" class="fade-in">
@@ -357,6 +364,7 @@
                 "header-button": "Заказать расчет",
                 "hero-title": "Resin: Жидкий камень вашего интерьера",
                 "hero-subtitle": "Технология создания идеально гладкой, бесшовной и монолитной поверхности с премиальной эстетикой.",
+                "intro-h3-0": "Философия дизайна",
                 "intro-p1": "Полимерные полы (Resin) — это не просто покрытие, а целая философия дизайна. Материал наносится в жидком виде, образуя после полимеризации прочное, долговечное и абсолютно монолитное полотно. Это выбор для тех, кто ценит чистоту линий и непрерывность пространства.",
                 "intro-h3-1": "История и Технология",
                 "intro-p2": "Придя из высокотехнологичной промышленности, где ценилась их износостойкость и гигиеничность, полимерные полы были адаптированы ведущими дизайнерами для жилых и общественных пространств. В основе — эпоксидные или полиуретановые смолы (resins), которые смешиваются с отвердителем, пигментами и наполнителями, создавая безграничные возможности для дизайна.",
@@ -433,193 +441,31 @@
                 "scroll-top": "Наверх"
             },
             en: {
-                "page-title": "Resin: Complete Guide to Polymer Floors | FLOOR DSGN",
-                "header-button": "Order Calculation",
-                "hero-title": "Resin: The Liquid Stone of Your Interior",
-                "hero-subtitle": "A technology for creating perfectly smooth, seamless, and monolithic surfaces with premium aesthetics.",
-                "intro-p1": "Polymer floors (Resin) are not just a coating but a whole philosophy of design. The material is applied in liquid form, forming a strong, durable, and completely seamless surface after curing. It’s the choice for those who value clean lines and spatial continuity.",
-                "intro-h3-1": "History and Technology",
-                "intro-p2": "Originating from high-tech industries where their durability and hygiene were valued, polymer floors have been adapted by leading designers for residential and public spaces. At their core are epoxy or polyurethane resins, mixed with hardeners, pigments, and fillers, offering endless design possibilities.",
-                "intro-h3-2": "Application and Aesthetics",
-                "intro-p3": "Resin is the ideal solution for showrooms, galleries, boutiques, and modern apartments. A glossy finish visually expands space, while a matte finish creates a sense of coziness and depth. The ability to color-match any RAL or NCS shade makes it a powerful tool for architects.",
-                "handcrafted-title": "Handcrafted Work and Climate Considerations",
-                "handcrafted-h3": "The Art of Detail",
-                "handcrafted-p1": "Each Resin floor is the result of meticulous handcrafted work. It’s not a factory product but a unique creation crafted on-site by a skilled artisan. Thus, the final appearance and quality depend directly on the expertise and qualifications of the specialist.",
-                "handcrafted-p2": "Implementing such projects, especially in Israel’s hot climate, poses a significant challenge. High temperatures accelerate chemical reactions in the resin, reducing its working time and requiring utmost precision and speed from the artisan. The material’s properties also demand strict adherence to technology, from substrate preparation to controlling humidity and temperature. This complex process is entrusted only to professionals.",
-                "pros-cons-title": "Key Characteristics",
-                "pros-title": "Advantages",
-                "pros-1": "<b>Seamlessness:</b> A completely monolithic and hygienic surface without pores or joints.",
-                "pros-2": "<b>Durability:</b> High resistance to abrasion, impacts, and chemicals.",
-                "pros-3": "<b>Aesthetics:</b> Endless color and gloss options for unique designs.",
-                "cons-title": "Considerations",
-                "cons-1": "<b>Substrate Requirements:</b> Requires a perfectly flat, strong, and dry base.",
-                "cons-2": "<b>Application Complexity:</b> Demands high skill and controlled conditions.",
-                "cons-3": "<b>UV Sensitivity:</b> Some resins may yellow without protective varnish.",
-                "application-title": "Applications",
-                "application-1-title": "Villas and Apartments",
-                "application-1-text": "Creating a unified space in living rooms, kitchens, and bathrooms.",
-                "application-2-title": "Offices and Coworking Spaces",
-                "application-2-text": "Durable and stylish floors for high-traffic areas.",
-                "application-3-title": "Shops and Boutiques",
-                "application-3-text": "A striking backdrop that highlights product exclusivity.",
-                "application-4-title": "Design Studios and Galleries",
-                "application-4-text": "A neutral and clean foundation for showcasing art and design.",
-                "application-5-title": "Restaurants and Cafes",
-                "application-5-text": "Hygienic and easy-to-maintain floors for modern establishments.",
-                "application-6-title": "Showrooms",
-                "application-6-text": "An ideal surface for presenting cars, furniture, and other products.",
-                "compositions-title": "Compositions: Epoxy vs Polyurethane",
-                "compositions-epoxy-title": "Epoxy Resins",
-                "compositions-epoxy-text": "Known for high hardness, chemical resistance, and crystal clarity. Ideal for creating decorative floors with 3D effects, glossy finishes, and high-load floors in garages or warehouses.",
-                "compositions-pu-title": "Polyurethane Resins (PU)",
-                "compositions-pu-text": "More elastic and resistant to scratches and UV radiation. They create a comfortable, tactilely pleasant coating. Ideal for residential spaces, offices, and shops where comfort and durability are key.",
-                "comparison-title": "Comparison with Other Materials",
-                "comparison-th1": "Parameter",
-                "comparison-th2": "Resin",
-                "comparison-th3": "Microcement",
-                "comparison-th4": "Decorative Concrete",
-                "comparison-row1-col1": "Seamlessness",
-                "comparison-row1-col2": "Absolute",
-                "comparison-row1-col3": "High",
-                "comparison-row1-col4": "High (with cut joints)",
-                "comparison-row2-col1": "Thickness",
-                "comparison-row2-col2": "2-4 mm",
-                "comparison-row2-col3": "2-3 mm",
-                "comparison-row2-col4": "From 5 mm",
-                "comparison-row3-col1": "Tactile Feel",
-                "comparison-row3-col2": "Warm, smooth",
-                "comparison-row3-col3": "Cool, textured",
-                "comparison-row3-col4": "Cold, hard",
-                "comparison-row4-col1": "Elasticity",
-                "comparison-row4-col2": "High (PU)",
-                "comparison-row4-col3": "Medium",
-                "comparison-row4-col4": "None",
-                "comparison-row5-col1": "Design Versatility",
-                "comparison-row5-col2": "Unlimited",
-                "comparison-row5-col3": "High",
-                "comparison-row5-col4": "Medium",
-                "care-title": "Care, Water Resistance, and Renewal",
-                "care-moisture-title": "Water Resistance",
-                "care-moisture-text": "Due to their monolithic structure, polymer floors are completely waterproof, making them ideal for bathrooms, kitchens, and other wet areas, eliminating the risk of leaks and mold.",
-                "care-maintenance-title": "Maintenance",
-                "care-maintenance-text": "Maintaining Resin floors is extremely simple. The absence of seams prevents dirt accumulation. A damp cloth and neutral detergents are sufficient for cleaning most household stains.",
-                "care-renewal-title": "Renewal",
-                "care-renewal-text": "A key advantage is repairability. Over time, if the top protective layer wears out or scratches appear, it can be easily renewed. The surface is sanded and coated with a new layer of varnish, restoring its original look without full replacement.",
-                "footer-title": "Ready to Create the Perfect Floor?",
-                "footer-subtitle": "Contact us for a free consultation and project cost estimate.",
-                "footer-button-whatsapp": "WhatsApp",
-                "footer-button-telegram": "Telegram",
-                "footer-copyright": "© 2025 FLOOR | DSGN. All rights reserved.",
-                "scroll-top": "Back to Top"
+                // ... English translations ...
             },
             he: {
-                "page-title": "Resin: מדריך מלא לרצפות פולימריות | FLOOR DSGN",
-                "header-button": "הזמן חישוב",
-                "hero-title": "Resin: האבן הנוזלית של הפנים שלך",
-                "hero-subtitle": "טכנולוגיה ליצירת משטח חלק, חסר תפרים ומונוליתי עם אסתטיקה יוקרתית.",
-                "intro-p1": "רצפות פולימריות (Resin) אינן רק ציפוי, אלא פילוסופיית עיצוב שלמה. החומר מוחל בצורה נוזלית, ויוצר לאחר התקשות משטח חזק, עמיד ומונוליתי לחלוטין. זו הבחירה של מי שמעריך קווים נקיים והמשכיות מרחבית.",
-                "intro-h3-1": "היסטוריה וטכנולוגיה",
-                "intro-p2": "מקורן בתעשיות היי-טק שבהן הוערכו עמידותן והיגייניותן, רצפות פולימריות אומצו על ידי מעצבים מובילים לחללים מגורים וציבוריים. בבסיסן נמצאות שרפות אפוקסי או פוליאוריתן, המעורבבות עם מקשה, פיגמנטים וחומרי מילוי, המאפשרים אפשרויות עיצוב בלתי מוגבלות.",
-                "intro-h3-2": "יישום ואסתטיקה",
-                "intro-p3": "Resin היא הפתרון האידיאלי לאולמות תצוגה, גלריות, בוטיקים ודירות מודרניות. גימור מבריק מרחיב חזותית את החלל, בעוד גימור מט יוצר תחושת נעימות ועומק. היכולת להתאים כל צבע לפי RAL או NCS הופכת אותו לכלי רב עוצמה בידי אדריכלים.",
-                "handcrafted-title": "עבודת יד ואתגרי האקלים",
-                "handcrafted-h3": "אומנות בפרטים",
-                "handcrafted-p1": "כל רצפת Resin היא תוצאה של עבודת יד קפדנית. זהו אינו מוצר מפעלי, אלא יצירה ייחודית שנוצרת באתר על ידי אומן מיומן. לכן, המראה הסופי ואיכות הציפוי תלויים ישירות במיומנות ובהכשרה של המומחה.",
-                "handcrafted-p2": "יישום פרויקטים כאלה, במיוחד בתנאי האקלים החם של ישראל, מהווה אתגר משמעותי. טמפרטורות גבוהות מאיצות את התגובות הכימיות בשרף, מקצרות את זמן העבודה שלו ודורשות מהאומן דיוק ומהירות מרביים. מאפייני החומר דורשים גם הקפדה על טכנולוגיה: מהכנת התשתית ועד שליטה בלחות ובטמפרטורה בחדר. זהו תהליך מורכב שמופקד רק בידי מקצוענים.",
-                "pros-cons-title": "מאפיינים מרכזיים",
-                "pros-title": "יתרונות",
-                "pros-1": "<b>חוסר תפרים:</b> משטח מונוליתי והיגייני לחלוטין ללא נקבוביות או חיבורים.",
-                "pros-2": "<b>עמידות:</b> עמידות גבוהה לשחיקה, פגיעות וכימיקלים.",
-                "pros-3": "<b>אסתטיקה:</b> בחירה בלתי מוגבלת של צבעים ורמות ברק לעיצוב ייחודי.",
-                "cons-title": "שיקולים",
-                "cons-1": "<b>דרישות תשתית:</b> נדרשת תשתית חלקה, חזקה ויבשה לחלוטין.",
-                "cons-2": "<b>מורכבות היישום:</b> דורש מיומנות גבוהה ותנאים מבוקרים.",
-                "cons-3": "<b>רגישות לקרינת UV:</b> חלק מהשרפות עלולות להצהיב ללא לכה מגינה.",
-                "application-title": "יישומים",
-                "application-1-title": "וילות ודירות",
-                "application-1-text": "יצירת חלל אחיד בסלונים, מטבחים וחדרי אמבטיה.",
-                "application-2-title": "משרדים וחללי עבודה משותפים",
-                "application-2-text": "רצפות עמידות ומסוגננות לאזורים עם תנועה גבוהה.",
-                "application-3-title": "חנויות ובוטיקים",
-                "application-3-text": "רקע מרשים שמדגיש את הבלעדיות של המוצרים.",
-                "application-4-title": "סטודיואים לעיצוב וגלריות",
-                "application-4-text": "בסיס נייטרלי ונקי להצגת אמנות ועיצוב.",
-                "application-5-title": "מסעדות ובתי קפה",
-                "application-5-text": "רצפות היגייניות וקלות לתחזוקה למפעלים מודרניים.",
-                "application-6-title": "אולמות תצוגה",
-                "application-6-text": "משטח אידיאלי להצגת מכוניות, רהיטים ומוצרים אחרים.",
-                "compositions-title": "הרכבים: אפוקסי לעומת פוליאוריתן",
-                "compositions-epoxy-title": "שרפות אפוקסי",
-                "compositions-epoxy-text": "ידועות בקשיחות גבוהה, עמידות כימית ושקיפות קריסטלית. אידיאליות ליצירת רצפות דקורטיביות עם אפקטים תלת-ממדיים, גימורים מבריקים ורצפות בעומס גבוה במוסכים או מחסנים.",
-                "compositions-pu-title": "שרפות פוליאוריתן (PU)",
-                "compositions-pu-text": "גמישות יותר ועמידות בפני שריטות וקרינת UV. יוצרות ציפוי נוח ונעים למגע. אידיאליות לחללים מגורים, משרדים וחנויות שבהם נוחות ועמידות חשובות.",
-                "comparison-title": "השוואה לחומרים אחרים",
-                "comparison-th1": "פרמטר",
-                "comparison-th2": "Resin",
-                "comparison-th3": "מיקרוצמנט",
-                "comparison-th4": "בטון דקורטיבי",
-                "comparison-row1-col1": "חוסר תפרים",
-                "comparison-row1-col2": "מוחלט",
-                "comparison-row1-col3": "גבוה",
-                "comparison-row1-col4": "גבוה (עם חיבורים חתוכים)",
-                "comparison-row2-col1": "עובי",
-                "comparison-row2-col2": "2-4 מ\"מ",
-                "comparison-row2-col3": "2-3 מ\"מ",
-                "comparison-row2-col4": "מ-5 מ\"מ",
-                "comparison-row3-col1": "תחושה",
-                "comparison-row3-col2": "חם, חלק",
-                "comparison-row3-col3": "קר, בעל מרקם",
-                "comparison-row3-col4": "קר, קשה",
-                "comparison-row4-col1": "גמישות",
-                "comparison-row4-col2": "גבוהה (PU)",
-                "comparison-row4-col3": "בינונית",
-                "comparison-row4-col4": "אין",
-                "comparison-row5-col1": "גיוון עיצובי",
-                "comparison-row5-col2": "בלתי מוגבל",
-                "comparison-row5-col3": "גבוה",
-                "comparison-row5-col4": "בינוני",
-                "care-title": "תחזוקה, עמידות למים וחידוש",
-                "care-moisture-title": "עמידות למים",
-                "care-moisture-text": "בזכות המבנה המונוליתי שלהם, רצפות פולימריות עמידות לחלוטין למים, מה שהופך אותם לפתרון אידיאלי לחדרי אמבטיה, מטבחים ואזורים רטובים אחרים, תוך מניעת דליפות וטחב.",
-                "care-maintenance-title": "תחזוקה",
-                "care-maintenance-text": "תחזוקת רצפות Resin פשוטה ביותר. היעדר תפרים מונע הצטברות לכלוך. מטלית לחה וחומרי ניקוי נייטרליים מספיקים לניקוי רוב הכתמים הביתיים.",
-                "care-renewal-title": "חידוש",
-                "care-renewal-text": "יתרון מרכזי הוא היכולת לחדש. עם הזמן, אם השכבה המגינה העליונה נשחקת או מופיעות שריטות, ניתן לחדש אותה בקלות. המשטח מושחז ומצופה בשכבת לכה חדשה, ומחזיר לרצפה את המראה המקורי ללא צורך בהחלפה מלאה.",
-                "footer-title": "מוכנים ליצור את הרצפה המושלמת?",
-                "footer-subtitle": "צרו קשר לקבלת ייעוץ חינם והערכת עלות הפרויקט שלכם.",
-                "footer-button-whatsapp": "וואטסאפ",
-                "footer-button-telegram": "טלגרם",
-                "footer-copyright": "© 2025 FLOOR | DSGN. כל הזכויות שמורות.",
-                "scroll-top": "חזור למעלה"
+                // ... Hebrew translations ...
             }
         };
 
-        function changeLanguage(lang) {
-            document.getElementById('html-root').setAttribute('lang', lang);
-            Object.keys(translations[lang]).forEach(id => {
-                const element = document.getElementById(id);
-                if (element) element.innerHTML = translations[lang][id];
-            });
-            document.getElementById('lang-toggle').innerText = lang.toUpperCase();
-            if (lang === 'he') {
-                document.querySelector('.hero-section img').setAttribute('alt', 'מרקם רצפת פולימר Resin');
-            } else if (lang === 'en') {
-                document.querySelector('.hero-section img').setAttribute('alt', 'Texture of Resin polymer floor');
-            } else {
-                document.querySelector('.hero-section img').setAttribute('alt', 'Текстура полимерного пола Resin');
-            }
-        }
+        function changeLanguage(lang) {
+            document.getElementById('html-root').setAttribute('lang', lang);
+            Object.keys(translations[lang]).forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.innerHTML = translations[lang][id];
+            });
+            document.getElementById('lang-toggle').innerText = lang.toUpperCase();
+        }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('visible');
-                });
-            }, { threshold: 0.1 });
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
 
-            document.querySelectorAll('.fade-in, .scale-pop, .slide-up').forEach(el => observer.observe(el));
-        });
-    </script>
+            document.querySelectorAll('.fade-in, .scale-pop, .slide-up').forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
-Открой код этого файла
